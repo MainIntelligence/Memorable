@@ -12,5 +12,14 @@ Memorable lib provides the functionality of standard dynamic memory with a more 
     
   -Memorable types can take care of that for you! With good consideration for efficiency, understandability, and even binary code size.
   
-To Install:
-(Insert intallation commands here lol)
+To Install: -Use basic cmake commands! (See https://github.com/MainIntelligence/CMakeScripts) for a reference.
+  -If using the scripts I put there, you can install just using:
+    
+    sudo MakeInstall
+  
+  To make sure you have things installed properly, you can make the build files (just run make in the Build directory)
+    and use the CMTest script I left over at the link above, or otherwise follow the steps it uses.
+      
+      -Note the package test is not included in the CTest, since its an interactive demonstration, 
+        you can modify the CMakeLists.txt in the tests directory to try it out! (a simple program that gets your name on the first run,
+        then remembers it from there on out. (run it again))
