@@ -2,8 +2,7 @@
 #include <new>
 #include "EmbeddedType.h"
 //Embeddor acts as a linearizer of memory hierarchies.
-	//ie. suppose class A has a both data and data pointers.
-	//	 The data pointed to by class A will be arranged immediately after A.
+	//ie. Every embedding gets memory immediately after the last.
 struct Embeddor {
 	void * currdat;
 	unsigned int len;
