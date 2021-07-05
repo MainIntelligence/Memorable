@@ -10,22 +10,15 @@ struct XRunData {
 
 template<class T> concept PointerType = std::is_pointer_v<T>;
 
-//struct Memory::Package;
-//namespace Memory {
-//Could detect when pointers point outside of program memory, 
-//Format Migration Files (needed when a type adds a member that also gets embedded, use to modify the package content so that loading works normally)
+//XREmbeddor: works with package to update pointers to point to the right location when starting up another run
+//	Note: currently assumes pointers are at a consistent location from start of package memory. 
+//	Could detect when pointers point outside of package memory and do something different, but meh.
 struct XREmbeddor : public Embeddor {
-	//void * currdat;
-	//int len;
-	//using namespace Memory;
 	XRunData mem;
 	XREmbeddor() {};
 	XREmbeddor(XRunData pack, const unsigned int cap) : Embeddor(pack.curr, cap), mem{pack} {};
 	XREmbeddor(XRunData pack, void * embedbegin, const unsigned int cap) : Embeddor(embedbegin, cap), mem{pack} {};
-	//Embeddor(void * memory, int bytes) : currdat{memory}, len{bytes} {};
 	
-	//use to be safe before embedding a bunch of data. (true if you can embed the given number of bytes using this Embeddor)
-	//inline bool CanFit(const unsigned int bytes) const noexcept { return len >= bytes; }
 	template <class T>
 	inline T* Embed() { return Embeddor::Embed<T>(); }
 	
@@ -39,12 +32,6 @@ struct XREmbeddor : public Embeddor {
 	//Embed<T>(unsigned int total) gives the memory for the 'total' number of T objects.
 	template <PointerType T>
 	T* Embed(const unsigned int total);
-	
-	//Constructs an object of class T, and embeds it within memory.
-	//template <typename T, typename ...Params>
-	//Embedded<T> Construct(Params&& ...);
-	
-	//Embeddor MakeSubEmbeddor(const unsigned int bytes);
 	
 	inline XREmbeddor MakeSubEmbeddor(const unsigned int bytes);
 };
