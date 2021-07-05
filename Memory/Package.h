@@ -3,10 +3,9 @@
 
 //namespace Memory {
 
-//Package: uses .pkg file that defines the partitions and data in raw memory.
-//	(specifically, it gives information about linear chunks of memory used (how many there are, their sizes), and the actual data in that memory.)
-// stores the pointer to the filename given to constructor locally, you decide if you want to use that (like, if it will still be in a valid memory location later on).
-
+//Package: At construction, creates or (if exists) loads the binary data at file into memory,
+//         deals out objects that use package memory (objects inherit data from file if it was loaded)
+//	   at destruction, writes all data (implicitly modified over the lifetime of dealt objects) back to binary file.
 struct Package {
 	const char * filename;
 	//void * memory;
