@@ -8,7 +8,7 @@ SET(SOURCE_CPPS)
 
 #Add subdirectories
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -fconcepts -std=c++2a")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -fconcepts -std=c++2a")
 add_subdirectory(Memory)
 #add_subdirectory(Core)
 
