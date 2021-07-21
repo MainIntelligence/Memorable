@@ -1,3 +1,4 @@
+[![CMake](https://github.com/MainIntelligence/Memorable/actions/workflows/cmake.yml/badge.svg)](https://github.com/MainIntelligence/Memorable/actions/workflows/cmake.yml)
 # Memorable
 A library with types allowing for quick and easy implementation of advanced memory functionalities.
 
