@@ -54,8 +54,8 @@ if((CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME AND BUILD_TESTING))
 	MATH(EXPR NUM_TESTS "${NUM_TESTS}-1")
 	foreach(i RANGE ${NUM_TESTS})
 		list(GET TEST_FILES ${i} test)
-		add_executable(${test} tests/${test})
-		target_link_libraries(${test} ${PROJECT_NAME})
+		#add_executable(${test} tests/${test})
+		#target_link_libraries(${test} ${PROJECT_NAME})
 		
 		#set_target_properties(${test} PROPERTIES OUTPUT_NAME ${test})
 		add_test(NAME ${test}
