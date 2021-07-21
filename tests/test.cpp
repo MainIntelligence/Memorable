@@ -2,7 +2,7 @@
 //#include <MemConfig.h>
 #include <cstdlib>
 #include <stdio.h>
-#include <Memorable/Embeddor.h>
+#include "Embeddor.h"
 //#include <Test/Comparisons.h>
 
 /*struct A {
