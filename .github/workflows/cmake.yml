@@ -34,7 +34,7 @@ jobs:
       
     - name: Install
       working-directory: ${{github.workspace}}/Build
-      run: sudo cmake --install .
+      run: cmake --install .
       
     - name: Test
       working-directory: ${{github.workspace}}/Build
