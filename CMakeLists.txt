@@ -21,15 +21,6 @@ add_library(${PROJECT_NAME} STATIC ${SOURCE_CPPS})
 #INSTALL
 include(GNUInstallDirs)
 
-
-#install(#TARGETS ${PROJECT_NAME}
-        #EXPORT ${PROJECT_NAME}Targets
-#        LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}/${PROJECT_NAME}
-#        ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}/${PROJECT_NAME}
-#        RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}/${PROJECT_NAME}
-#        INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/${PROJECT_NAME}
-#)
-
 install(TARGETS ${PROJECT_NAME} LIBRARY DESTINATION lib)
 				 
 list(LENGTH INCLUDE_DIRS TOTAL_INCLUDES)
@@ -42,9 +33,7 @@ foreach(i RANGE ${TOTAL_INCLUDES})
 	)
 endforeach()
 
-#TEST    
-#add_executable(${PROJECT_NAME}Test graphicsdemo.cc)
-#target_link_libraries(${PROJECT_NAME}Test ${PROJECT_NAME} CUDA_LIB)
+#TEST
 include(CTest)
 enable_testing()
 if((CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME AND BUILD_TESTING))
@@ -55,7 +44,7 @@ if((CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME AND BUILD_TESTING))
 	foreach(i RANGE ${NUM_TESTS})
 		list(GET TEST_FILES ${i} test)
 		add_executable(${test} tests/${test})
-		#target_link_libraries(${test} ${PROJECT_NAME})
+		target_link_libraries(${test} ${PROJECT_NAME})
 		
 		#set_target_properties(${test} PROPERTIES OUTPUT_NAME ${test})
 		add_test(NAME ${test}
