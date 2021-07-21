@@ -30,7 +30,7 @@ jobs:
       
     - name: Install
       working-directory: ${{github.workspace}}/Build
-      run: make && cmake --install .
+      run: make && sudo cmake --install .
       
     - name: Build
       # Build your program with the given configuration
